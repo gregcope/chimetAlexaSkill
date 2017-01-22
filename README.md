@@ -30,8 +30,8 @@ Date, time, mean, gust, Wind Dir, tide hight, mean wave height, max wave height,
 From [https://tinnedfruit.com/2011/03/10/using-squidman-to-snoop-ios-requests.html]
 
 * install squidman [http://squidman.net/squidman/]
-* config to listen to subnet (ifconfig -a for details)
-* control-T for logs (click access)
+* config to listen to subnet (`ifconfig -a` for details)
+* control-T for logs (click access logs)
 * On Iphone configure proxy (ip is laptop IP, port 8080)
 * Open app
-* Check logs
+* Check squidman logs 
