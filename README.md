@@ -1,7 +1,7 @@
 # Chimet Weather data Alexa Skill
 
 ## Intro
-1. Ask alexa for "Chichester met data"
+1. Ask alexa for `Chichester met data`
 2. Should reply with something like: `Chimet. 2:10 pm. 22 January. Wind mean 9.0, gusting 9.7, direction 097. Tide height 2.09. Air temp 6.3 degrees.`
 
 Based on AWS Space skill example alex app
