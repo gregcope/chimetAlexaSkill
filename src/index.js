@@ -31,7 +31,7 @@ var Chimet = function () {
 
 // Extend AlexaSkill
 Chimet.prototype = Object.create(AlexaSkill.prototype);
-Chimet.prototype.constructor = chimet;
+Chimet.prototype.constructor = Chimet;
 
 Chimet.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
     //console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
