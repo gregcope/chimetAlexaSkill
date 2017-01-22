@@ -81,12 +81,13 @@ function handleChiMetRequest(response) {
   console.log('handleChiMetRequest: got here too');
   var speechOutput = '';
   var cardTitle = 'Chimet';
+  var chiResponseString = '';
 
   console.time('http-request');
 
   console.log('about to start HTTP request for: '+URI);
   http.get(URI, function (res) {
-    var chiResponseString = '';
+
     console.log('handleChiMetRequest: HTTP response for Status Code: '+res.statusCode+', for: '+URI);
 
     // if for some reason we did not get a HTTP 200 OK
@@ -115,6 +116,7 @@ function handleChiMetRequest(response) {
         +'Air temp '+chiData[9]+' degrees.';
 
 	  console.log("handleChiMetRequest: speechOutput is: "+speechOutput);
+	  response.tellWithCard(speechOutput, cardTitle, speechOutput);
 
     });
   }).on('error', function (e) {
@@ -122,8 +124,6 @@ function handleChiMetRequest(response) {
     console.log("handleChiMetRequest: Communications error: " + e.message);
   });
 
-  console.log('handleChiMetRequest: speechOutput is: '+speechOutput);
-  response.tellWithCard(speechOutput, cardTitle, speechOutput);
 }
 
 // Create the handler that responds to the Alexa Request.
