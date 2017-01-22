@@ -19,9 +19,19 @@ So, setting up a proxy for an iDevice and sniffing the traffic shows that the Mo
 `22 January,6:50 am,6.4,7.4,051,3.90, 0.59,0.68,15,1.6,,1026,`
 Date, time, mean, gust, Wind Dir, tide hight, mean wave height, max wave height, wave period, air temp, sea temp, pressure, visibility
 
-
 ## Data areas
 1. chimet [http://www.chimet.co.uk/csg/chi.html]
 2. bramblement [http://www.bramblemet.co.uk/csg/bra.html]
-3. Sotonmet [http://www.sotonmet.co.uk/csg/sot.html]
-4. Cambermet [http://www.cambermet.co.uk/csg/cam.html]
+3. sotonmet [http://www.sotonmet.co.uk/csg/sot.html]
+4. cambermet [http://www.cambermet.co.uk/csg/cam.html]
+
+## How to snoop iOS
+
+From [https://tinnedfruit.com/2011/03/10/using-squidman-to-snoop-ios-requests.html]
+
+# install squidman
+# config to listen to subnet (ifconfig -a for details)
+# control-T for logs (click access)
+# On Iphone configure proxy (ip is laptop IP, port 8080)
+# Open app
+# Check logs
