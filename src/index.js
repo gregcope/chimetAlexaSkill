@@ -84,12 +84,14 @@ function handleChiMetRequest(response) {
 
   console.time('http-request');
 
+  console.log('about to start HTTP request for: '+URI);
   http.get(URI, function (res) {
     var chiResponseString = '';
     console.log('handleChiMetRequest: HTTP response for Status Code: '+res.statusCode+', for: '+URI);
 
     // if for some reason we did not get a HTTP 200 OK
     if (res.statusCode != 200) {
+	  console.log("handleChiMetRequest: Non 200 Response for: "+URI);
       forecastResponseCallback(new Error("handleChiMetRequest: Non 200 Response for: "+URI));
       console.timeEnd('http-request');
     }
