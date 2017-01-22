@@ -25,9 +25,11 @@ Date, time, mean, gust, Wind Dir, tide hight, mean wave height, max wave height,
 3. sotonmet [http://www.sotonmet.co.uk/csg/sot.html]
 4. cambermet [http://www.cambermet.co.uk/csg/cam.html]
 
-## How to snoop iOS
+## How to snoop iOS HTTP only
 
 From [https://tinnedfruit.com/2011/03/10/using-squidman-to-snoop-ios-requests.html]
+
+(When everything goes HTTPS this will not give HTTP URIs only hostnames)
 
 * install squidman [http://squidman.net/squidman/]
 * config to listen to subnet (`ifconfig -a` for details)
