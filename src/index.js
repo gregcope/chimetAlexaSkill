@@ -122,7 +122,8 @@ function handleChiMetRequest(response) {
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
-    // Create an instance of the SpaceGeek skill.
+    var chimet = new chimet();
+    // Create an instance of the chimet skill.
     chimet.execute(event, context);
 };
 
