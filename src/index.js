@@ -12,7 +12,6 @@ var http = require('http');
 var chiData = [];
 var chiDataTime = 0;
 
-
 /**
  * The AlexaSkill prototype and helper functions
  */
@@ -75,9 +74,46 @@ Fact.prototype.intentHandlers = {
  */
 
 function handleChiMetRequest(response) {
-    var speechOutput = "Here's your fact: " + randomFact;
-    var cardTitle = "Chimet";
-	response.tellWithCard(speechOutput, cardTitle, speechOutput);
+  var speechOutput = '';
+  var cardTitle = 'Chimet';
+
+  console.time('http-request');
+
+  http.get(URI, function (res) {
+    var chiResponseString = '';
+    console.log('handleChiMetRequest: HTTP response for Status Code: '+res.statusCode+', for: '+URI);
+
+    // if for some reason we did not get a HTTP 200 OK
+    if (res.statusCode != 200) {
+      forecastResponseCallback(new Error("handleChiMetRequest: Non 200 Response for: "+URI));
+      console.timeEnd('http-request');
+    }
+
+    // got some more data to append
+    res.on('data', function (data) {
+      chiResponseString += data;
+    });
+
+    // in theory finished!
+    res.on('end', function () {
+      // should have a sensible result
+      chiDataTime = new Date().getTime();
+      chiData = chiResponseString.split(',');
+      console.log("handleChiMetRequest: res.on done");
+      console.timeEnd('http-request');
+
+      speechOutput = 'Chimet.  '+chiData[1]+'.  '+chiData[0]+'.  '
+        +'Wind mean '+chiData[2]+', gusting '+chiData[3]+', direction '+chiData[4]+'.  '
+        +'Tide height '+chiData[5]+'.  '
+        +'Air temp '+chiData[9]+' degrees.'
+
+    });
+  }).on('error', function (e) {
+    console.timeEnd('http-request');
+    console.log("handleChiMetRequest: Communications error: " + e.message);
+  });
+
+  response.tellWithCard(speechOutput, cardTitle, speechOutput);
 }
 
 // Create the handler that responds to the Alexa Request.
