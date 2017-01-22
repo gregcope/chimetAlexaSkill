@@ -9,7 +9,7 @@ var APP_ID = "amzn1.ask.skill.69248e8b-2456-4937-9227-94773ceb34de";
 // `22 January,6:50 am,6.4,7.4,051,3.90, 0.59,0.68,15,1.6,,1026,`
 // Date, time, mean, gust, Wind Dir, tide hight, mean wave height, max wave height, wave period, air temp, sea temp, pressure, visibility
 
-var URI = 'http://www.chimet.co.uk/csg/chi.html'
+var URI = 'http://www.chimet.co.uk/csg/chi.html';
 var http = require('http');
 var chiData = [];
 var chiDataTime = 0;
