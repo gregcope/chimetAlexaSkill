@@ -14,6 +14,11 @@ var http = require('http');
 var chiData = [];
 var chiDataTime = 0;
 
+
+// from; https://github.com/kanbara/beaufort/blob/master/beaufort.js
+// http://about.metservice.com/assets/downloads/learning/winds_poster_web.pdf
+var knotLimits = [1,3,6,10,16,21,27,33,40,47,55,63,512];
+
 /**
  * The AlexaSkill prototype and helper functions
  */
@@ -108,7 +113,7 @@ function handleChiMetRequest(response) {
       console.timeEnd('http-request');
 
       speechOutput = 'Chai met.  '+chiData[1]+'.  '+chiData[0]+'.  '
-        +'Wind mean '+chiData[2]+', gusting '+chiData[3]+', direction '+chiData[4]+'.  '
+        +forceFromKnots(chiData[2])+', gusting '+forceFromKnots(chiData[3])+', direction '+chiData[4]+'.  '
         +'Tide height '+chiData[5]+'.  '
         +'Air temp '+chiData[9]+' degrees.';
 
@@ -130,3 +135,12 @@ exports.handler = function (event, context) {
     chimet.execute(event, context);
 };
 
+function forceFromKnots(knots) {
+  if(kmh < 0 || kmh == undefined) return "Calm";
+
+  var beauNum = knotLimits.reduce(function(previousValue, currentValue, index, array) {
+    return "Force "+previousValue + (knots > currentValue ? 1 : 0);
+  },0);
+
+  return "Force "+beauNum;
+}
