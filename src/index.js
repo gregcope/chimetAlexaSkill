@@ -25,7 +25,7 @@ var AlexaSkill = require('./AlexaSkill');
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
  */
-var Fact = function () {
+var chimet = function () {
     AlexaSkill.call(this, APP_ID);
 };
 
@@ -123,7 +123,6 @@ function handleChiMetRequest(response) {
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
     // Create an instance of the SpaceGeek skill.
-    var fact = new Fact();
-    fact.execute(event, context);
+    chimet.execute(event, context);
 };
 
