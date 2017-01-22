@@ -25,20 +25,20 @@ var AlexaSkill = require('./AlexaSkill');
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
  */
-var chimet = function () {
+var Chimet = function () {
     AlexaSkill.call(this, APP_ID);
 };
 
 // Extend AlexaSkill
-chimet.prototype = Object.create(AlexaSkill.prototype);
-chimet.prototype.constructor = chimet;
+Chimet.prototype = Object.create(AlexaSkill.prototype);
+Chimet.prototype.constructor = chimet;
 
-chimet.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
+Chimet.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
     //console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
     // any initialization logic goes here
 };
 
-chimet.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
+Chimet.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     //console.log("onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
     handleNewFactRequest(response);
 };
@@ -122,7 +122,7 @@ function handleChiMetRequest(response) {
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
-    var chimet = new chimet();
+    var chimet = new Chimet();
     // Create an instance of the chimet skill.
     chimet.execute(event, context);
 };
