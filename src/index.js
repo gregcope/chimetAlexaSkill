@@ -53,7 +53,6 @@ Chimet.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, s
 
 Chimet.prototype.intentHandlers = {
     "GetChiMetIntent": function (intent, session, response) {
-	    console.log("Chimet.prototype.intentHandlers: got here!");
 		handleChiMetRequest(response);
     },
 
@@ -78,14 +77,12 @@ Chimet.prototype.intentHandlers = {
 
 function handleChiMetRequest(response) {
 
-  console.log('handleChiMetRequest: got here too');
   var speechOutput = '';
   var cardTitle = 'Chi met';
   var chiResponseString = '';
 
   console.time('http-request');
 
-  console.log('about to start HTTP request for: '+URI);
   http.get(URI, function (res) {
 
     console.log('handleChiMetRequest: HTTP response for Status Code: '+res.statusCode+', for: '+URI);
