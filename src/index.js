@@ -46,12 +46,12 @@ Chimet.prototype.eventHandlers.onLaunch = function (launchRequest, session, resp
 /**
  * Overridden to show that a subclass can override this function to teardown session state.
  */
-chimet.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
+Chimet.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
     //console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
 
-chimet.prototype.intentHandlers = {
+Chimet.prototype.intentHandlers = {
     "GetChiMetIntent": function (intent, session, response) {
 		handleChiMetRequest(response);
     },
