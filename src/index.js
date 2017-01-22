@@ -80,7 +80,7 @@ function handleChiMetRequest(response) {
 
   console.log('handleChiMetRequest: got here too');
   var speechOutput = '';
-  var cardTitle = 'Chimet';
+  var cardTitle = 'Chi met';
   var chiResponseString = '';
 
   console.time('http-request');
@@ -110,7 +110,7 @@ function handleChiMetRequest(response) {
       console.log("handleChiMetRequest: res.on done");
       console.timeEnd('http-request');
 
-      speechOutput = 'Chimet.  '+chiData[1]+'.  '+chiData[0]+'.  '
+      speechOutput = 'Chia met.  '+chiData[1]+'.  '+chiData[0]+'.  '
         +'Wind mean '+chiData[2]+', gusting '+chiData[3]+', direction '+chiData[4]+'.  '
         +'Tide height '+chiData[5]+'.  '
         +'Air temp '+chiData[9]+' degrees.';
