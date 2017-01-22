@@ -77,6 +77,8 @@ Chimet.prototype.intentHandlers = {
  */
 
 function handleChiMetRequest(response) {
+
+  console.log('handleChiMetRequest: got here too');
   var speechOutput = '';
   var cardTitle = 'Chimet';
 
