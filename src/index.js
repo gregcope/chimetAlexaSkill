@@ -107,7 +107,9 @@ function handleChiMetRequest(response) {
       speechOutput = 'Chimet.  '+chiData[1]+'.  '+chiData[0]+'.  '
         +'Wind mean '+chiData[2]+', gusting '+chiData[3]+', direction '+chiData[4]+'.  '
         +'Tide height '+chiData[5]+'.  '
-        +'Air temp '+chiData[9]+' degrees.'
+        +'Air temp '+chiData[9]+' degrees.';
+
+	  console.log("handleChiMetRequest: speechOutput is: "+speechOutput);
 
     });
   }).on('error', function (e) {
