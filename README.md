@@ -1,6 +1,12 @@
-e Chimet Weather data Alexa Skill
+# Chimet Weather data Alexa Skill
 
 ## Intro
+1. Ask alexa for "Chichester met data"
+2. Should reply with something like: `Chimet. 2:10 pm. 22 January. Wind mean 9.0, gusting 9.7, direction 097. Tide height 2.09. Air temp 6.3 degrees.`
+
+Based on AWS Space skill example alex app
+
+## What is chimet?
 Chimet [http://www.chimet.co.uk/] is one of a group of near real time weather data stations in Solent, Southern England, UK.  Primarly used by sailors to understnad the live weather in common stomping grounds.  Chimet is actually on a mark called "West Pole".  This is a "dolphin" - a marine term for a tripod mark.  West Pole (the marks name) is situated just south of chichest harbour entrance, and marks the endof Chichested bar sand bank.
 
 It looks like this;
