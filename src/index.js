@@ -53,6 +53,7 @@ Chimet.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, s
 
 Chimet.prototype.intentHandlers = {
     "GetChiMetIntent": function (intent, session, response) {
+	    console.log("Chimet.prototype.intentHandlers: got here!");
 		handleChiMetRequest(response);
     },
 
