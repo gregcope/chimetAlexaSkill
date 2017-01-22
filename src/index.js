@@ -120,6 +120,7 @@ function handleChiMetRequest(response) {
     console.log("handleChiMetRequest: Communications error: " + e.message);
   });
 
+  console.log('handleChiMetRequest: speechOutput is: '+speedOutput);
   response.tellWithCard(speechOutput, cardTitle, speechOutput);
 }
 
