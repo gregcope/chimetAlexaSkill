@@ -1,7 +1,9 @@
 /**
  * App ID for the skill
  */
-var APP_ID = undefined; //OPTIONAL: replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+//var APP_ID = undefined; //OPTIONAL: replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+
+var APP_ID = "amzn1.ask.skill.69248e8b-2456-4937-9227-94773ceb34de";
 
 // [http://www.chimet.co.uk/csg/chi.html]
 // `22 January,6:50 am,6.4,7.4,051,3.90, 0.59,0.68,15,1.6,,1026,`
