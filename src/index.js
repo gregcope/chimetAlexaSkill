@@ -40,7 +40,7 @@ Chimet.prototype.eventHandlers.onSessionStarted = function (sessionStartedReques
 
 Chimet.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     //console.log("onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    handleNewFactRequest(response);
+    handleChiMetRequest(response);
 };
 
 /**
