@@ -107,7 +107,7 @@ function handleChiMetRequest(response) {
       console.log("handleChiMetRequest: res.on done");
       console.timeEnd('http-request');
 
-      speechOutput = 'Chi met.  '+chiData[1]+'.  '+chiData[0]+'.  '
+      speechOutput = 'Chai met.  '+chiData[1]+'.  '+chiData[0]+'.  '
         +'Wind mean '+chiData[2]+', gusting '+chiData[3]+', direction '+chiData[4]+'.  '
         +'Tide height '+chiData[5]+'.  '
         +'Air temp '+chiData[9]+' degrees.';
