@@ -136,7 +136,7 @@ exports.handler = function (event, context) {
 };
 
 function forceFromKnots(knots) {
-  if(kmh < 0 || kmh == undefined) return "Calm";
+  if(knots < 0 || knots == undefined) return "Calm";
 
   var beauNum = knotLimits.reduce(function(previousValue, currentValue, index, array) {
     return "Force "+previousValue + (knots > currentValue ? 1 : 0);
