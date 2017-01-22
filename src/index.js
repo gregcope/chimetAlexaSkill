@@ -30,15 +30,15 @@ var chimet = function () {
 };
 
 // Extend AlexaSkill
-Fact.prototype = Object.create(AlexaSkill.prototype);
-Fact.prototype.constructor = Fact;
+chimet.prototype = Object.create(AlexaSkill.prototype);
+chimet.prototype.constructor = chimet;
 
-Fact.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
+chimet.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
     //console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
     // any initialization logic goes here
 };
 
-Fact.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
+chimet.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     //console.log("onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
     handleNewFactRequest(response);
 };
@@ -46,12 +46,12 @@ Fact.prototype.eventHandlers.onLaunch = function (launchRequest, session, respon
 /**
  * Overridden to show that a subclass can override this function to teardown session state.
  */
-Fact.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
+chimet.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
     //console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
 
-Fact.prototype.intentHandlers = {
+chimet.prototype.intentHandlers = {
     "GetChiMetIntent": function (intent, session, response) {
 		handleChiMetRequest(response);
     },
