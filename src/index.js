@@ -140,25 +140,25 @@ function getBeaufort(knots) {
   // https://forum.freecodecamp.com/t/can-somebody-help-with-a-simple-javascript-problem/56010/2
   var beaufort = '';
   switch (knots) {
-    case parseFloat(knots) < 1:
+    case knots < 1:
       beaufort = 'Calm';
       break;
-    case parseFloat(knots) < 4:
+    case knots < 4:
       beaufort = 'Force 1';
       break;
-    case parseFloat(knots) < 7:
+    case knots < 7:
       beaufort = 'Force 2';
       break;
-    case parseFloat(knots) < 11:
+    case knots < 11:
       beaufort = 'Force 3';
       break;
-    case parseFloat(knots) < 17:
+    case knots < 17:
       beaufort = 'Force 4';
       break;
-    case parseFloat(knots) < 22:
+    case knots < 22:
       beaufort = 'Force 5';
       break;
-    case parseFloat(knots) < 28:
+    case knots < 28:
       beaufort = 'Force 6';
       break;
     case knots < 34:
@@ -176,8 +176,10 @@ function getBeaufort(knots) {
     case knots < 64:
       beaufort = 'Force 11';
       break;
+	case knots > 64:
+	  beaufort = 'Force 12';
+	  break;
   }
-  beaufort = 'Force 12';
   return beaufort; 
   // on this line I added a return statement so the function would return the results of the calculation
   // you can either return the beaufort calculation here like I did
