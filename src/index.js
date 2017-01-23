@@ -9,15 +9,13 @@ var APP_ID = "amzn1.ask.skill.69248e8b-2456-4937-9227-94773ceb34de";
 // `22 January,6:50 am,6.4,7.4,051,3.90, 0.59,0.68,15,1.6,,1026,`
 // Date, time, mean, gust, Wind Dir, tide hight, mean wave height, max wave height, wave period, air temp, sea temp, pressure, visibility
 
+// global vars
 var URI = 'http://www.chimet.co.uk/csg/chi.html';
 var http = require('http');
 var chiData = [];
 var chiDataTime = 0;
 
-
-// from; https://github.com/kanbara/beaufort/blob/master/beaufort.js
-// http://about.metservice.com/assets/downloads/learning/winds_poster_web.pdf
-var knotLimits = [1,3,6,10,16,21,27,33,40,47,55,63,512];
+// lets go....
 
 /**
  * The AlexaSkill prototype and helper functions
@@ -76,18 +74,23 @@ Chimet.prototype.intentHandlers = {
     }
 };
 
-/**
- * Gets a random new fact from the list and returns to the user.
- */
-
+//
+// Function to get Chimet data
+// Fetches HTTP response
+// Splits on ','
+// Formats reponse
+// tellWithCard
+//
 function handleChiMetRequest(response) {
 
   var speechOutput = '';
   var cardTitle = 'Chimet';
   var chiResponseString = '';
 
+  // start http timer
   console.time('http-request');
 
+  // go get
   http.get(URI, function (res) {
 
     console.log('handleChiMetRequest: HTTP response for Status Code: '+res.statusCode+', for: '+URI);
@@ -112,6 +115,7 @@ function handleChiMetRequest(response) {
       console.log("handleChiMetRequest: res.on done");
       console.timeEnd('http-request');
 
+      // format response
       speechOutput = chiData[1]+'.  '+chiData[0]+'.  '
         +getCompassDir(+chiData[4])+', ' +getBeaufort(chiData[2])
         +', gusting '+getBeaufort(chiData[3])+'.  '
@@ -136,6 +140,11 @@ exports.handler = function (event, context) {
     chimet.execute(event, context);
 };
 
+//
+// Function to return windspeed in beaufort scale
+// takes windspeed in knots
+// returns string
+//
 function getBeaufort(knots) {
 
   // https://forum.freecodecamp.com/t/can-somebody-help-with-a-simple-javascript-problem/56010/2
@@ -184,6 +193,11 @@ function getBeaufort(knots) {
   return beaufort; 
 }
 
+//
+// Function to return compass heading
+// takes a heading
+// returns string
+//
 function getCompassDir(direction) {
 
   var compass = '';
