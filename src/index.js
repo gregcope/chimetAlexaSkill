@@ -137,29 +137,28 @@ exports.handler = function (event, context) {
 
 function getBeaufort(knots) {
 
-  knots = parseFloat(knots); 
   // https://forum.freecodecamp.com/t/can-somebody-help-with-a-simple-javascript-problem/56010/2
   var beaufort = '';
   switch (knots) {
-    case knots < 1:
+    case parseFloat(knots) < 1:
       beaufort = 'Calm';
       break;
-    case knots < 4:
+    case parseFloat(knots) < 4:
       beaufort = 'Force 1';
       break;
-    case knots < 7:
+    case parseFloat(knots) < 7:
       beaufort = 'Force 2';
       break;
-    case knots < 11:
+    case parseFloat(knots) < 11:
       beaufort = 'Force 3';
       break;
-    case knots < 17:
+    case parseFloat(knots) < 17:
       beaufort = 'Force 4';
       break;
-    case knots < 22:
+    case parseFloat(knots) < 22:
       beaufort = 'Force 5';
       break;
-    case knots < 28:
+    case parseFloat(knots) < 28:
       beaufort = 'Force 6';
       break;
     case knots < 34:
