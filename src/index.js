@@ -113,7 +113,8 @@ function handleChiMetRequest(response) {
       console.timeEnd('http-request');
 
       speechOutput = chiData[1]+'.  '+chiData[0]+'.  '
-        +getBeaufort(chiData[2])+', gusting '+getBeaufort(chiData[3])+', direction '+chiData[4]+'.  '
+        +getCompassDir(+chiData[4])+', ' +getBeaufort(chiData[2])
+        +', gusting '+getBeaufort(chiData[3])+'.  '
         +'Tide height '+chiData[5]+'.  '
         +'Air temp '+chiData[9]+' degrees.';
 
@@ -181,9 +182,45 @@ function getBeaufort(knots) {
 	  break;
   }
   return beaufort; 
-  // on this line I added a return statement so the function would return the results of the calculation
-  // you can either return the beaufort calculation here like I did
-  // or you could do the DOM update here if you want the function  to just change the DOM
 }
+
+function getCompassDir(direction) {
+
+  var compass = '';
+
+  switch (true) {
+    case direction <= 30:
+      compass = 'North';
+      break;
+    case direction <= 60:
+      compass = 'North East';
+      break;
+    case direction <= 120:
+      beaufort = 'East';
+      break;
+    case direction <= 150:
+      compass = 'South East';
+      break;
+    case direction <= 210:
+      compass = 'South';
+      break;
+    case direction <= 240:
+      beaufort = 'South West';
+      break;
+    case direction <= 300:
+      compass = 'West';
+      break;
+    case direction <= 330:
+      compass = 'North West';
+      break;
+    case direction > 330:
+      compass = 'North';
+      break;
+  }
+  return compass;
+}
+
+
+
 
 
