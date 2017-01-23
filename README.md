@@ -2,7 +2,7 @@
 
 ## Intro
 1. Ask alexa for `Chichester met data`
-2. Should reply with something like: `Chimet. 2:10 pm. 22 January. Wind mean 9.0, gusting 9.7, direction 097. Tide height 2.09. Air temp 6.3 degrees.`
+2. Should reply with 'Chai met.  9:45 pm.  23 January.  North, Force 1, gusting Force 1.  Tide height 3.71.  Air temp 4.1 degrees.`
 
 Based on AWS Space skill example alex app
 
