@@ -137,6 +137,7 @@ exports.handler = function (event, context) {
 
 function getBeaufort(knots) {
 
+  knots = parseFloat(knots); 
   // https://forum.freecodecamp.com/t/can-somebody-help-with-a-simple-javascript-problem/56010/2
   var beaufort = '';
   switch (knots) {
