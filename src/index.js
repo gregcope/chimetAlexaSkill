@@ -112,13 +112,13 @@ function handleChiMetRequest(response) {
       console.log("handleChiMetRequest: res.on done");
       console.timeEnd('http-request');
 
-      speechOutput = 'Chai met.  '+chiData[1]+'.  '+chiData[0]+'.  '
-        +forceFromKnots(chiData[2])+', gusting '+forceFromKnots(chiData[3])+', direction '+chiData[4]+'.  '
+      speechOutput = chiData[1]+'.  '+chiData[0]+'.  '
+        +getBeaufort(chiData[2])+', gusting '+getBeaufort(chiData[3])+', direction '+chiData[4]+'.  '
         +'Tide height '+chiData[5]+'.  '
         +'Air temp '+chiData[9]+' degrees.';
 
 	  console.log("handleChiMetRequest: speechOutput is: "+speechOutput);
-	  response.tellWithCard(speechOutput, cardTitle, speechOutput);
+	  response.tellWithCard('Chai met.  '+speechOutput, cardTitle, 'Chimet.  '+speechOutput);
 
     });
   }).on('error', function (e) {
@@ -135,14 +135,53 @@ exports.handler = function (event, context) {
     chimet.execute(event, context);
 };
 
-function forceFromKnots(knots) {
+function getBeaufort(knots) {
 
-  return knots;
-  if(knots < 0 || knots == undefined) return "Calm";
-
-  var beauNum = knotLimits.reduce(function(previousValue, currentValue, index, array) {
-    return "Force "+previousValue + (knots > currentValue ? 1 : 0);
-  },0);
-
-  return "Force "+beauNum;
+  // https://forum.freecodecamp.com/t/can-somebody-help-with-a-simple-javascript-problem/56010/2
+  var beaufort = '';
+  switch (knots) {
+    case knots < 1:
+      beaufort = 'Calm';
+      break;
+    case knots < 4:
+      beaufort = 'Force 1';
+      break;
+    case knots < 7:
+      beaufort = 'Force 2';
+      break;
+    case knots < 11:
+      beaufort = 'Force 3';
+      break;
+    case knots < 17:
+      beaufort = 'Force 4';
+      break;
+    case knots < 22:
+      beaufort = 'Force 5';
+      break;
+    case knots < 28:
+      beaufort = 'Force 6';
+      break;
+    case knots < 34:
+      beaufort = 'Force 7';
+      break;
+    case knots < 41:
+      beaufort = 'Force 8';
+      break;
+    case knots < 48:
+      beaufort = 'Force 9';
+      break;
+    case knots < 56:
+      beaufort = 'Force 10';
+      break;
+    case knots < 64:
+      beaufort = 'Force 11';
+      break;
+  }
+  beaufort = 'Force 12';
+  return beaufort; 
+  // on this line I added a return statement so the function would return the results of the calculation
+  // you can either return the beaufort calculation here like I did
+  // or you could do the DOM update here if you want the function  to just change the DOM
 }
+
+
