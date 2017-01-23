@@ -136,10 +136,10 @@ exports.handler = function (event, context) {
 };
 
 function getBeaufort(knots) {
-  return knots;
+
   // https://forum.freecodecamp.com/t/can-somebody-help-with-a-simple-javascript-problem/56010/2
   var beaufort = '';
-  switch (knots) {
+  switch (true) {
     case knots < 1:
       beaufort = 'Calm';
       break;
